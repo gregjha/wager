@@ -1,0 +1,60 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+**/.next/
+**/out/
+
+# production
+/build
+apps/api/dist/
+apps/api/index.js
+apps/api/src/app.bundle.js
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+**/next-env.d.ts
+
+# prisma & pothos generated outputs
+packages/db/src/generated/
+packages/domain/src/generated/
+apps/web/src/lib/generated/
+
+# local db handling only
+**/seed.mjs
+
+# local script artifacts
+.review/
+.tmp/
+
+# lambda package artifacts
+lambda/**/node_modules/
+lambda/**/dist/

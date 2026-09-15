@@ -1,0 +1,166 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Sport {
+  Basketball
+  Soccer
+  Volleyball
+  Pickleball
+  Tennis
+  Softball
+  Football
+  UltimateFrisbee
+  Hockey
+  Kickball
+}
+
+enum SkillLevel {
+  Beginner
+  Intermediate
+  Advanced
+  AllLevels
+}
+
+enum MatchStatus {
+  Open
+  Cancelled
+  Completed
+}
+
+/// Lifecycle of one user's seat in a match.
+/// Pending holds a seat while Stripe Checkout is open; it counts toward
+/// capacity until `holdExpiresAt`, then the webhook (or lazy sweep) expires it.
+enum EntryStatus {
+  Pending
+  Confirmed
+  Expired
+  Left
+  Refunded
+}
+
+model Match {
+  id              String       @id @default(cuid())
+  title           String
+  description     String
+  sport           Sport
+  skillLevel      SkillLevel
+  status          MatchStatus  @default(Open)
+  startsAt        DateTime
+  durationMinutes Int
+  venueName       String
+  address         String
+  city            String
+  capacity        Int
+  /// Entry fee in the smallest currency unit (cents). 0 = free match.
+  entryFeeCents   Int          @default(0)
+  currency        String       @default("usd")
+  /// Hours before `startsAt` after which leaving no longer refunds.
+  refundCutoffHours Int        @default(24)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  host            User         @relation(name: "HostedMatches", fields: [hostId], references: [id])
+  hostId          String
+  entries         MatchEntry[]
+
+  @@index([hostId])
+  @@index([startsAt, id])
+  @@index([sport, startsAt])
+}
+
+model MatchEntry {
+  id                    String      @id @default(cuid())
+  status                EntryStatus
+  amountCents           Int         @default(0)
+  holdExpiresAt         DateTime?
+  stripeCheckoutId      String?     @unique
+  stripePaymentIntentId String?     @unique
+  stripeRefundId        String?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+  match                 Match       @relation(fields: [matchId], references: [id], onDelete: Cascade)
+  matchId               String
+  user                  User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                String
+
+  /// One seat row per user per match; re-joining reuses the row.
+  @@unique([matchId, userId])
+  @@index([userId, status])
+  @@index([matchId, status])
+}
+
+/// Processed Stripe webhook event ids — makes webhook handling idempotent.
+model StripeEvent {
+  id          String   @id
+  type        String
+  processedAt DateTime @default(now())
+}
+
+/// Better Auth — OAuth / credential linkage.
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+}
+
+/// Better Auth — database sessions.
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model User {
+  id                  String       @id @default(cuid())
+  name                String       @default("")
+  email               String       @unique
+  emailVerified       Boolean      @default(false)
+  image               String?
+  /// Stripe Connect Express account that receives entry fees for hosted matches.
+  stripeAccountId     String?      @unique
+  stripePayoutsReady  Boolean      @default(false)
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+  accounts            Account[]
+  sessions            Session[]
+  hostedMatches       Match[]      @relation(name: "HostedMatches")
+  entries             MatchEntry[]
+}
+
+/// Better Auth — verification / OAuth state storage.
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+}

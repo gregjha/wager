@@ -1,0 +1,20 @@
+{
+  "name": "@bi/domain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@bi/db": "workspace:*",
+    "@bi/payments": "workspace:*",
+    "@bi/shared": "workspace:*",
+    "server-only": "^0.0.1"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

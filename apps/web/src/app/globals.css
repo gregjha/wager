@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/*
+ * Wager — "city rec court" palette.
+ * Asphalt ink, painted court blue, lane-line yellow, turf green, concrete ground.
+ */
+:root {
+  --asphalt: #2b3036;
+  --court: #2f5da8;
+  --line: #f2c230;
+  --turf: #3f7d4e;
+  --concrete: #eef1f3;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-barlow-condensed), var(--font-barlow),
+    ui-sans-serif, system-ui, sans-serif;
+
+  --color-asphalt: var(--asphalt);
+  --color-court: var(--court);
+  --color-line: var(--line);
+  --color-turf: var(--turf);
+
+  --color-background: var(--concrete);
+  --color-foreground: var(--asphalt);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--asphalt);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--asphalt);
+  --color-primary: var(--court);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #dfe5ea;
+  --color-secondary-foreground: var(--asphalt);
+  --color-muted: #e3e8ec;
+  --color-muted-foreground: #5d6670;
+  --color-accent: #d6e0ee;
+  --color-accent-foreground: var(--asphalt);
+  --color-destructive: #c2412d;
+  --color-destructive-foreground: #c2412d;
+  --color-border: #d3dae0;
+  --color-input: #c6ced6;
+  --color-ring: var(--court);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  /* Ticket-stub perforation between the date stub and the card body. */
+  .perforation {
+    background-image: radial-gradient(
+      circle at 0 50%,
+      var(--concrete) 5px,
+      transparent 5.5px
+    );
+    background-size: 10px 16px;
+    background-repeat: repeat-y;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
