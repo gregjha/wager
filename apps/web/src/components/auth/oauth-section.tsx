@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, type TransitionStartFunction } from "react";
-import { FaGoogle, FaReddit } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa6";
 
 import { authClient } from "@/lib/auth/auth-client";
 
 import OAuthButton from "./oauth-button";
 
-type SocialProvider = "google" | "reddit";
+type SocialProvider = "google";
 
 type Props = Readonly<{
   action: "login" | "register";
@@ -45,7 +45,7 @@ export default function OAuthSection({
   }
 
   return (
-    <div className="flex flex-col gap-y-4 mb-6">
+    <div className="flex flex-col gap-y-4 mb-4">
       {error ? (
         <p className="text-sm text-destructive text-center" role="alert">
           {error}
@@ -56,12 +56,6 @@ export default function OAuthSection({
         label={`${actionText} with Google`}
         Icon={FaGoogle}
         onClick={() => handleSocial("google")}
-      />
-      <OAuthButton
-        disabled={isLoading}
-        label={`${actionText} with Reddit`}
-        Icon={FaReddit}
-        onClick={() => handleSocial("reddit")}
       />
     </div>
   );

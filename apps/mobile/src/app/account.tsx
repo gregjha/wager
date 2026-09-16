@@ -16,7 +16,6 @@ import {
 export default function AccountScreen() {
   const { data, isPending } = authClient.useSession();
   const google = useSocialSignIn("google");
-  const reddit = useSocialSignIn("reddit");
 
   const signedIn = Boolean(data?.session);
 
@@ -35,10 +34,7 @@ export default function AccountScreen() {
           <SignedInPanel user={data?.user} />
         ) : (
           <SignedOutPanel
-            providers={[
-              { label: "Google", ...google },
-              { label: "Reddit", ...reddit },
-            ]}
+            providers={[{ label: "Google", ...google }]}
           />
         )}
       </SafeAreaView>
@@ -99,7 +95,7 @@ function SignedOutPanel({ providers }: SignedOutPanelProps) {
     <ThemedView type="backgroundElement" style={styles.card}>
       <ThemedText type="subtitle">Sign in</ThemedText>
       <ThemedText type="small">
-        Sign in with Google or Reddit to join matches from your phone.
+        Sign in with Google to join matches from your phone.
       </ThemedText>
 
       {providers.map((provider) => {

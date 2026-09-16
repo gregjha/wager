@@ -67,15 +67,11 @@ export const wagerBetterAuthOptions = {
       clientId: requireEnv(["AUTH_GOOGLE_ID"]),
       clientSecret: requireEnv(["AUTH_GOOGLE_SECRET"]),
     },
-    reddit: {
-      clientId: requireEnv(["AUTH_REDDIT_ID"]),
-      clientSecret: requireEnv(["AUTH_REDDIT_SECRET"]),
-    },
   },
   account: {
     accountLinking: {
       enabled: true,
-      trustedProviders: ["google", "reddit"],
+      trustedProviders: ["google"],
     },
   },
   secondaryStorage: resilientSecondaryStorage(

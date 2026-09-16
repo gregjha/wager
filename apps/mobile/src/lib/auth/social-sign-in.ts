@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { authClient } from "./auth-client";
 
-export type SocialProvider = "google" | "reddit";
+export type SocialProvider = "google";
 
 export type SocialSignInStatus = "idle" | "unconfigured" | "busy" | "error";
 

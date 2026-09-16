@@ -12,7 +12,7 @@ export function RegisterForm() {
 
   return (
     <Card>
-      <CardContent className="flex flex-col gap-y-4 pt-6">
+      <CardContent className="flex flex-col gap-y-4 pt-4">
         <OAuthSection
           action="register"
           isLoading={isLoading}

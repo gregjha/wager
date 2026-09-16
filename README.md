@@ -52,7 +52,7 @@ Mobile (separate terminal): `cd apps/mobile && bunx expo start`. See [apps/mobil
 - **Web:** Next.js 16, React 19, Tailwind 4, shadcn/radix-ui. RSC + `@bi/domain` for server reads; Server Actions for match create/update/cancel and payout onboarding; TanStack Query for lists and join/leave.
 - **Mobile:** Expo SDK 55, TanStack Query, `@bi/shared` api-client. Paid joins use `WebBrowser.openAuthSessionAsync`; `/checkout/return` bounces Stripe's https redirect to `wager://`.
 - **Data:** Prisma via `@bi/db`; business logic in `@bi/domain` (server-only).
-- **Auth:** Better Auth at `/api/auth/*` (Google, Reddit), Redis secondary storage.
+- **Auth:** Better Auth at `/api/auth/*` (Google), Redis secondary storage.
 - **Payments:** Stripe Connect Express via `@bi/payments`.
 
 ## Deploy
@@ -69,7 +69,7 @@ Single Vercel project with **Root Directory** `apps/web`.
 
 Create the webhook endpoint at `{origin}/api/webhooks/stripe` with **"Listen to events on Connected accounts" enabled** (needed for `account.updated`) and subscribe to: `checkout.session.completed`, `checkout.session.expired`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `account.updated`, `charge.refunded`.
 
-OAuth redirects: `{origin}/api/auth/callback/google` and `/callback/reddit`.
+OAuth redirects: `{origin}/api/auth/callback/google`.
 
 ## Scope note
 
