@@ -4,7 +4,7 @@ import type { BetterAuthOptions } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import Redis from "ioredis";
 
-import { prisma } from "@bi/db";
+import { prisma } from "@wager/db";
 
 import { envStr, requireEnv } from "./auth-env";
 import { resilientSecondaryStorage } from "./resilient-secondary-storage";

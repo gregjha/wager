@@ -1,9 +1,9 @@
-import { apiErrorCodes, updateMatchInputSchema } from "@bi/shared";
+import { apiErrorCodes, updateMatchInputSchema } from "@wager/shared";
 import {
   cancelMatchForUser,
   getMatchById,
   updateMatchForUser,
-} from "@bi/domain";
+} from "@wager/domain";
 
 import { getOptionalUserId, requireUserId } from "@/lib/api/route-handler";
 import {

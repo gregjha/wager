@@ -1,5 +1,5 @@
-import { constructWebhookEvent, type Stripe } from "@bi/payments";
-import { handleStripeEvent } from "@bi/domain";
+import { constructWebhookEvent, type Stripe } from "@wager/payments";
+import { handleStripeEvent } from "@wager/domain";
 
 import { jsonError, jsonResponse } from "@/lib/api/json-response";
 

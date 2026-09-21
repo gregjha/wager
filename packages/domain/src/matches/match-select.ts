@@ -4,8 +4,8 @@ import type {
   EntryStatusLabel,
   MatchDetailDTO,
   MatchDTO,
-} from "@bi/shared";
-import type { Prisma } from "@bi/db";
+} from "@wager/shared";
+import type { Prisma } from "@wager/db";
 
 import { seatHoldingEntryWhere } from "./seats";
 

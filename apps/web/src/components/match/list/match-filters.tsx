@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "nextjs-toploader/app";
-import { SPORT_LABELS, formatSportLabel } from "@bi/shared";
+import { SPORT_LABELS, formatSportLabel } from "@wager/shared";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

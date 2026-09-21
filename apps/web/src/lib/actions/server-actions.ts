@@ -8,13 +8,13 @@ import {
   updateMatchInputSchema,
   type CreateMatchInput,
   type UpdateMatchInput,
-} from "@bi/shared";
+} from "@wager/shared";
 import {
   cancelMatchForUser,
   createMatchForUser,
   startHostOnboarding,
   updateMatchForUser,
-} from "@bi/domain";
+} from "@wager/domain";
 
 async function authorizedInvariant(): Promise<string> {
   const session = await auth();

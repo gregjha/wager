@@ -1,6 +1,6 @@
 # Wager REST API
 
-Authoritative contract for HTTP routes under `apps/web/src/app/api/`. Mobile and web client islands call these endpoints; RSC pages and Server Actions call `@bi/domain` directly.
+Authoritative contract for HTTP routes under `apps/web/src/app/api/`. Mobile and web client islands call these endpoints; RSC pages and Server Actions call `@wager/domain` directly.
 
 ## Conventions
 
@@ -41,7 +41,7 @@ Cursor is base64url JSON: `{ "startsAt": "<ISO8601>", "id": "<cuid>" }`.
 
 ## MatchDTO
 
-See `matchDtoSchema` in `@bi/shared`. Notable fields:
+See `matchDtoSchema` in `@wager/shared`. Notable fields:
 
 - `spotsTaken`: confirmed entries plus unexpired checkout holds.
 - `viewerEntryStatus`: `"Confirmed" | "Pending" | "Expired" | "Left" | "Refunded" | null`. A lapsed hold reads as `null`.

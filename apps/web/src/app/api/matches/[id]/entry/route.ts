@@ -1,5 +1,5 @@
-import { joinMatchBodySchema } from "@bi/shared";
-import { joinMatch, leaveMatch } from "@bi/domain";
+import { joinMatchBodySchema } from "@wager/shared";
+import { joinMatch, leaveMatch } from "@wager/domain";
 
 import { requireUserId } from "@/lib/api/route-handler";
 import {

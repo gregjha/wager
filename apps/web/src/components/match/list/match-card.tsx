@@ -4,7 +4,7 @@ import {
   formatSkillLevel,
   formatSportLabel,
   type MatchDTO,
-} from "@bi/shared";
+} from "@wager/shared";
 
 import { Badge } from "@/components/ui/badge";
 

@@ -14,7 +14,7 @@ import {
   type MatchesListQuery,
   type PayoutStatus,
   webApiClient,
-} from "@bi/shared";
+} from "@wager/shared";
 
 type MatchFilters = Pick<MatchesListQuery, "search" | "sport" | "city" | "price">;
 

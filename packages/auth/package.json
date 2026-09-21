@@ -1,5 +1,5 @@
 {
-  "name": "@bi/auth",
+  "name": "@wager/auth",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -13,7 +13,7 @@
   "dependencies": {
     "@better-auth/expo": "^1.6.11",
     "@better-auth/redis-storage": "^1.6.11",
-    "@bi/db": "workspace:*",
+    "@wager/db": "workspace:*",
     "better-auth": "^1.6.11",
     "ioredis": "^5.10.1"
   },

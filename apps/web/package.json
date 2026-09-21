@@ -1,23 +1,24 @@
 {
-  "name": "@bi/web",
+  "name": "@wager/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "bun run --filter @bi/db prisma:generate && next build",
+    "build": "bun run --filter @wager/db prisma:generate && next build",
     "start": "next start",
     "lint": "eslint --config eslint.config.mjs --max-warnings 0 .",
-    "vercel-build": "bun run --filter @bi/db prisma:generate && bun run --filter @bi/db prisma:migrate:deploy && next build",
+    "test": "vitest run",
+    "vercel-build": "bun run --filter @wager/db prisma:generate && bun run --filter @wager/db prisma:migrate:deploy && next build",
     "clean": "rm -rf node_modules .next",
     "prisma-sanity": "bash scripts/prisma-sanity.sh",
     "review-packet": "bash scripts/review-packet.sh"
   },
   "dependencies": {
-    "@bi/auth": "workspace:*",
-    "@bi/db": "workspace:*",
-    "@bi/domain": "workspace:*",
-    "@bi/payments": "workspace:*",
-    "@bi/shared": "workspace:*",
+    "@wager/auth": "workspace:*",
+    "@wager/db": "workspace:*",
+    "@wager/domain": "workspace:*",
+    "@wager/payments": "workspace:*",
+    "@wager/shared": "workspace:*",
     "@hookform/resolvers": "^5.2.1",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -48,15 +49,20 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@types/node": "^24.3.0",
     "@types/react": "~19.2.2",
     "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^6.1.1",
     "dotenv": "^17.2.2",
     "eslint": "^9.34.0",
     "eslint-config-next": "^16",
+    "jsdom": "^30.1.0",
     "tailwindcss": "^4.1.12",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^5.0.1"
   },
   "engines": {
     "node": "22.x"

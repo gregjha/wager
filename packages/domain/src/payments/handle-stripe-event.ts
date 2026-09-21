@@ -1,7 +1,7 @@
 import "server-only";
 
-import { prisma, Prisma } from "@bi/db";
-import { refundEntryPayment, type Stripe } from "@bi/payments";
+import { prisma, Prisma } from "@wager/db";
+import { refundEntryPayment, type Stripe } from "@wager/payments";
 
 import { countTakenSeats, lockMatchRow } from "../matches/seats";
 

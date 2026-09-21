@@ -16,7 +16,7 @@ import {
   type MatchDetailDTO,
   type MatchFormData,
   type MatchFormInput,
-} from "@bi/shared";
+} from "@wager/shared";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

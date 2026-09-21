@@ -1,6 +1,6 @@
-import { auth as betterAuth } from "@bi/auth/next";
+import { auth as betterAuth } from "@wager/auth/next";
 
-import { UnauthorizedError } from "@bi/domain";
+import { UnauthorizedError } from "@wager/domain";
 
 export async function requireUserId(request: Request): Promise<string> {
   const session = await betterAuth.api.getSession({

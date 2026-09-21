@@ -12,7 +12,7 @@ import {
   formatSkillLevel,
   formatSportLabel,
   type MatchDTO,
-} from "@bi/shared";
+} from "@wager/shared";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";

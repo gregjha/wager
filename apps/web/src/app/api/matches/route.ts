@@ -1,5 +1,5 @@
-import { createMatchInputSchema } from "@bi/shared";
-import { createMatchForUser, listMatches } from "@bi/domain";
+import { createMatchInputSchema } from "@wager/shared";
+import { createMatchForUser, listMatches } from "@wager/domain";
 
 import { getOptionalUserId, requireUserId } from "@/lib/api/route-handler";
 import { handleDomainError, jsonResponse } from "@/lib/api/json-response";

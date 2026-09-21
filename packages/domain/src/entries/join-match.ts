@@ -1,13 +1,13 @@
 import "server-only";
 
-import type { JoinMatchResponse } from "@bi/shared";
-import { prisma } from "@bi/db";
+import type { JoinMatchResponse } from "@wager/shared";
+import { prisma } from "@wager/db";
 import {
   CHECKOUT_HOLD_MINUTES,
   createEntryCheckoutSession,
   getAppOrigin,
   getStripe,
-} from "@bi/payments";
+} from "@wager/payments";
 
 import {
   ConflictError,

@@ -1,4 +1,4 @@
-import type { EntryStatusLabel, MatchStatusLabel } from "@bi/shared";
+import type { EntryStatusLabel, MatchStatusLabel } from "@wager/shared";
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";

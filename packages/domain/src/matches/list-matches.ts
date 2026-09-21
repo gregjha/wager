@@ -1,7 +1,7 @@
 import "server-only";
 
-import type { MatchConnection, MatchesListQuery } from "@bi/shared";
-import { prisma, type Prisma } from "@bi/db";
+import type { MatchConnection, MatchesListQuery } from "@wager/shared";
+import { prisma, type Prisma } from "@wager/db";
 
 import { decodeMatchCursor, encodeMatchCursor } from "./cursor";
 import {

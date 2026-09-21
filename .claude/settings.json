@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "agent",
+            "if": "Write(apps/web/src/components/**)",
+            "model": "claude-sonnet-5",
+            "timeout": 180,
+            "statusMessage": "Writing a test for the new component...",
+            "prompt": "A new file was just written: $ARGUMENTS\n\nIf the written file is NOT a new React component (e.g. it's not a .tsx file, it's a barrel/index file, a type-only file, or it lives under apps/web/src/components/ui/ — those are shadcn-managed primitives added via `bunx shadcn add`, don't test them), do nothing and stop.\n\nOtherwise:\n1. Read the component file to understand its props and behavior.\n2. Check whether apps/web already has a test runner configured (look for vitest.config.*, jest.config.*, or a `test` script in apps/web/package.json). If none exists, do NOT install packages or create config — just write the test file using Vitest + @testing-library/react conventions (the standard choice for this Next.js/React 19 stack) as if it were available, and end with a note that vitest and @testing-library/react need to be installed before this test can run.\n3. Write a focused test file colocated next to the component as `<component-name>.test.tsx`: a render smoke test, plus 1-2 tests covering the component's main prop-driven behavior or interaction. Keep it short — don't over-test trivial presentational components.\n4. If a test runner IS already configured, run just this new test file to sanity-check it passes; if it fails, fix the test (not the component) and retry once.\n\nDon't modify the component itself. Don't touch unrelated files."
+          },
+          {
+            "type": "agent",
+            "if": "Write(apps/mobile/src/components/**)",
+            "model": "claude-sonnet-5",
+            "timeout": 180,
+            "statusMessage": "Writing a test for the new component...",
+            "prompt": "A new file was just written: $ARGUMENTS\n\nIf the written file is NOT a new React Native component (not a .tsx file, a barrel/index file, or a type-only file), do nothing and stop.\n\nOtherwise:\n1. Read the component file to understand its props and behavior.\n2. Check whether apps/mobile already has a test runner configured (look for jest.config.*, a `jest` key in apps/mobile/package.json, or a `test` script). If none exists, do NOT install packages or create config — just write the test file using jest-expo + @testing-library/react-native conventions (the standard choice for Expo apps) as if it were available, and end with a note that they need to be installed before this test can run.\n3. Write a focused test file colocated next to the component as `<component-name>.test.tsx`: a render smoke test, plus 1-2 tests covering the component's main prop-driven behavior or interaction. Keep it short.\n4. If a test runner IS already configured, run just this new test file to sanity-check it passes; if it fails, fix the test (not the component) and retry once.\n\nDon't modify the component itself. Don't touch unrelated files."
+          }
+        ]
+      }
+    ]
+  }
+}

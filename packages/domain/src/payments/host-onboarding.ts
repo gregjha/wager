@@ -1,12 +1,12 @@
 import "server-only";
 
-import type { PayoutStatus } from "@bi/shared";
-import { prisma } from "@bi/db";
+import type { PayoutStatus } from "@wager/shared";
+import { prisma } from "@wager/db";
 import {
   createConnectedAccount,
   createOnboardingLink,
   isAccountPayoutReady,
-} from "@bi/payments";
+} from "@wager/payments";
 
 import { NotFoundError } from "../auth/errors";
 

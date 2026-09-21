@@ -11,7 +11,7 @@ import {
   queryKeys,
   type JoinMatchResponse,
   type MatchConnection,
-} from "@bi/shared";
+} from "@wager/shared";
 
 import { mobileApiClient } from "@/lib/api-client";
 

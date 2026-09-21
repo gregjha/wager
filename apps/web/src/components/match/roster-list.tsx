@@ -1,4 +1,4 @@
-import type { HostDTO, RosterPlayerDTO } from "@bi/shared";
+import type { HostDTO, RosterPlayerDTO } from "@wager/shared";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

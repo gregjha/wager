@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import { Suspense } from "react";
-import { getMatchById } from "@bi/domain";
+import { getMatchById } from "@wager/domain";
 
 import { auth } from "@/auth";
 import { MatchFormWrapper } from "@/components/match/form/match-form-wrapper";

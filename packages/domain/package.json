@@ -1,5 +1,5 @@
 {
-  "name": "@bi/domain",
+  "name": "@wager/domain",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,9 +9,9 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@bi/db": "workspace:*",
-    "@bi/payments": "workspace:*",
-    "@bi/shared": "workspace:*",
+    "@wager/db": "workspace:*",
+    "@wager/payments": "workspace:*",
+    "@wager/shared": "workspace:*",
     "server-only": "^0.0.1"
   },
   "engines": {

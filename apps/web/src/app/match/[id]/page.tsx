@@ -2,8 +2,8 @@ import { ArrowLeft, MapPin } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { getMatchById } from "@bi/domain";
-import { formatSkillLevel, formatSportLabel } from "@bi/shared";
+import { getMatchById } from "@wager/domain";
+import { formatSkillLevel, formatSportLabel } from "@wager/shared";
 
 import { auth } from "@/auth";
 import { DateStub } from "@/components/match/date-stub";

@@ -1,4 +1,4 @@
-/** Env reads shared by `@bi/auth` — keep tiny; no secrets in logs. */
+/** Env reads shared by `@wager/auth` — keep tiny; no secrets in logs. */
 
 export function envStr(keys: readonly string[]): string {
   for (const k of keys) {

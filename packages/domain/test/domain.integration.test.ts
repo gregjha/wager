@@ -10,7 +10,7 @@ const refunds: string[] = [];
 const expired: string[] = [];
 let checkoutCounter = 0;
 
-mock.module("@bi/payments", () => ({
+mock.module("@wager/payments", () => ({
   CHECKOUT_HOLD_MINUTES: 30,
   getAppOrigin: () => "http://localhost:3000",
   createEntryCheckoutSession: async () => {
@@ -43,7 +43,7 @@ mock.module("@bi/payments", () => ({
   isAccountPayoutReady: async () => true,
 }));
 
-const { prisma } = await import("@bi/db");
+const { prisma } = await import("@wager/db");
 const domain = await import("../src/domain");
 
 const inAWeek = () => new Date(Date.now() + 7 * 24 * 3_600_000);

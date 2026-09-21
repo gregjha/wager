@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { unstable_rethrow } from "next/navigation";
 import { ZodError } from "zod";
 
-import { apiErrorCodes, type ApiError } from "@bi/shared";
+import { apiErrorCodes, type ApiError } from "@wager/shared";
 import {
   ConflictError,
   ForbiddenError,
@@ -10,7 +10,7 @@ import {
   NotFoundError,
   PayoutsNotReadyError,
   UnauthorizedError,
-} from "@bi/domain";
+} from "@wager/domain";
 
 export function jsonResponse<T>(data: T, status = 200) {
   return NextResponse.json(data, { status });

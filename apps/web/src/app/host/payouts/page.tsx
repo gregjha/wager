@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import { getPayoutStatus } from "@bi/domain";
-import { PLATFORM_FEE_BPS } from "@bi/shared";
+import { getPayoutStatus } from "@wager/domain";
+import { PLATFORM_FEE_BPS } from "@wager/shared";
 
 import { auth } from "@/auth";
 import { ConnectPayoutsButton } from "@/components/payouts/connect-payouts-button";

@@ -1,4 +1,4 @@
-import type { MatchDetailDTO } from "@bi/shared";
+import type { MatchDetailDTO } from "@wager/shared";
 
 import { MatchForm } from "./match-form";
 

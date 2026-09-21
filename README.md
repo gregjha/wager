@@ -9,11 +9,11 @@ apps/
   web/                # Next.js 16 — App Router, REST /api, Better Auth, Server Actions
   mobile/             # Expo SDK 55 — TanStack Query + REST against web /api
 packages/
-  domain/             # @bi/domain — server-only match, entry, and payment logic
-  payments/           # @bi/payments — Stripe Connect, Checkout, refunds, webhooks (server-only)
-  shared/             # @bi/shared — Zod API schemas, DTOs, api-client, query keys
-  db/                 # @bi/db — Prisma
-  auth/               # @bi/auth — Better Auth
+  domain/             # @wager/domain — server-only match, entry, and payment logic
+  payments/           # @wager/payments — Stripe Connect, Checkout, refunds, webhooks (server-only)
+  shared/             # @wager/shared — Zod API schemas, DTOs, api-client, query keys
+  db/                 # @wager/db — Prisma
+  auth/               # @wager/auth — Better Auth
 ```
 
 REST API contract: [docs/api.md](docs/api.md).
@@ -23,7 +23,7 @@ REST API contract: [docs/api.md](docs/api.md).
 ```bash
 bun install
 cp apps/web/.env.example apps/web/.env   # fill in values
-bun run --filter @bi/db prisma:migrate:dev
+bun run --filter @wager/db prisma:migrate:dev
 bun run dev                              # web on :3000
 bun run stripe:listen                    # forwards webhooks; copy the whsec_ into .env
 ```
@@ -49,11 +49,11 @@ Mobile (separate terminal): `cd apps/mobile && bunx expo start`. See [apps/mobil
 
 ## Stack
 
-- **Web:** Next.js 16, React 19, Tailwind 4, shadcn/radix-ui. RSC + `@bi/domain` for server reads; Server Actions for match create/update/cancel and payout onboarding; TanStack Query for lists and join/leave.
-- **Mobile:** Expo SDK 55, TanStack Query, `@bi/shared` api-client. Paid joins use `WebBrowser.openAuthSessionAsync`; `/checkout/return` bounces Stripe's https redirect to `wager://`.
-- **Data:** Prisma via `@bi/db`; business logic in `@bi/domain` (server-only).
+- **Web:** Next.js 16, React 19, Tailwind 4, shadcn/radix-ui. RSC + `@wager/domain` for server reads; Server Actions for match create/update/cancel and payout onboarding; TanStack Query for lists and join/leave.
+- **Mobile:** Expo SDK 55, TanStack Query, `@wager/shared` api-client. Paid joins use `WebBrowser.openAuthSessionAsync`; `/checkout/return` bounces Stripe's https redirect to `wager://`.
+- **Data:** Prisma via `@wager/db`; business logic in `@wager/domain` (server-only).
 - **Auth:** Better Auth at `/api/auth/*` (Google), Redis secondary storage.
-- **Payments:** Stripe Connect Express via `@bi/payments`.
+- **Payments:** Stripe Connect Express via `@wager/payments`.
 
 ## Deploy
 

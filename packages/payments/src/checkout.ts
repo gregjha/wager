@@ -1,6 +1,6 @@
 import "server-only";
 
-import { platformFeeCents } from "@bi/shared";
+import { platformFeeCents } from "@wager/shared";
 
 import { getStripe } from "./client";
 

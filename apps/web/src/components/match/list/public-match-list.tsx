@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { sportSchema } from "@bi/shared";
+import { sportSchema } from "@wager/shared";
 
 import { Button } from "@/components/ui/button";
 import { useMatches } from "@/lib/query/hooks/use-matches";

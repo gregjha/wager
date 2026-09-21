@@ -40,7 +40,7 @@ export const createMatchInputSchema = matchInputBaseSchema;
 
 /**
  * Server-action / REST payload for updating a match. Fee and capacity
- * changes are validated against existing entries in `@bi/domain`.
+ * changes are validated against existing entries in `@wager/domain`.
  */
 export const updateMatchInputSchema = matchInputBaseSchema.partial().extend({
   id: z.string().cuid(),

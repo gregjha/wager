@@ -7,12 +7,12 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "bun run --filter @bi/web dev",
-    "dev:web": "bun run --filter @bi/web dev",
-    "build": "bun run --filter @bi/web build",
-    "lint": "bun run --filter @bi/web lint",
-    "prisma-sanity": "bun run --filter @bi/web prisma-sanity",
-    "review-packet": "bun run --filter @bi/web review-packet",
+    "dev": "bun run --filter @wager/web dev",
+    "dev:web": "bun run --filter @wager/web dev",
+    "build": "bun run --filter @wager/web build",
+    "lint": "bun run --filter @wager/web lint",
+    "prisma-sanity": "bun run --filter @wager/web prisma-sanity",
+    "review-packet": "bun run --filter @wager/web review-packet",
     "stripe:listen": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
     "test:domain": "bun test --conditions react-server packages/domain/test"
   },

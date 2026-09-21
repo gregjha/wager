@@ -5,7 +5,7 @@ import type {
   InfiniteData,
   UseInfiniteQueryResult,
 } from "@tanstack/react-query";
-import type { MatchConnection } from "@bi/shared";
+import type { MatchConnection } from "@wager/shared";
 
 import MatchSkeletonList from "./match-skeleton-list";
 import { MatchCard } from "./match-card";

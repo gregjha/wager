@@ -1,5 +1,5 @@
-import type { OnboardingLinkResponse } from "@bi/shared";
-import { startHostOnboarding } from "@bi/domain";
+import type { OnboardingLinkResponse } from "@wager/shared";
+import { startHostOnboarding } from "@wager/domain";
 
 import { requireUserId } from "@/lib/api/route-handler";
 import { handleDomainError, jsonResponse } from "@/lib/api/json-response";

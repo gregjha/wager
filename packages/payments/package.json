@@ -1,5 +1,5 @@
 {
-  "name": "@bi/payments",
+  "name": "@wager/payments",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@bi/shared": "workspace:*",
+    "@wager/shared": "workspace:*",
     "server-only": "^0.0.1",
     "stripe": "^19.1.0"
   },

@@ -1,4 +1,4 @@
-import { matchesListQuerySchema, paginationQuerySchema } from "@bi/shared";
+import { matchesListQuerySchema, paginationQuerySchema } from "@wager/shared";
 
 export function parseMatchesListQuery(request: Request) {
   const { searchParams } = new URL(request.url);

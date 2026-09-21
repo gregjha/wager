@@ -1,8 +1,8 @@
 import "server-only";
 
-import type { LeaveMatchResponse } from "@bi/shared";
-import { prisma } from "@bi/db";
-import { expireCheckoutSession, refundEntryPayment } from "@bi/payments";
+import type { LeaveMatchResponse } from "@wager/shared";
+import { prisma } from "@wager/db";
+import { expireCheckoutSession, refundEntryPayment } from "@wager/payments";
 
 import { ConflictError, NotFoundError } from "../auth/errors";
 

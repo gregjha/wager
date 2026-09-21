@@ -1,4 +1,4 @@
-import { formatCents } from "@bi/shared";
+import { formatCents } from "@wager/shared";
 
 import { cn } from "@/lib/utils";
 

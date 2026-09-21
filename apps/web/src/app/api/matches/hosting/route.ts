@@ -1,4 +1,4 @@
-import { listHostingMatches } from "@bi/domain";
+import { listHostingMatches } from "@wager/domain";
 
 import { requireUserId } from "@/lib/api/route-handler";
 import { handleDomainError, jsonResponse } from "@/lib/api/json-response";

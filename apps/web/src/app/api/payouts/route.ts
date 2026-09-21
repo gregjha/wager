@@ -1,4 +1,4 @@
-import { getPayoutStatus } from "@bi/domain";
+import { getPayoutStatus } from "@wager/domain";
 
 import { requireUserId } from "@/lib/api/route-handler";
 import { handleDomainError, jsonResponse } from "@/lib/api/json-response";

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 
-import { signOutAndClearQueries } from "@bi/shared";
+import { signOutAndClearQueries } from "@wager/shared";
 import { useQueryClient } from "@tanstack/react-query";
 
 import { authClient } from "@/lib/auth/auth-client";

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useTransition } from "react";
 import { Pencil } from "lucide-react";
-import { formatCents, type MatchDetailDTO } from "@bi/shared";
+import { formatCents, type MatchDetailDTO } from "@wager/shared";
 
 import { Button } from "@/components/ui/button";
 import {

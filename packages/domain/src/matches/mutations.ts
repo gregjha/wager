@@ -1,8 +1,8 @@
 import "server-only";
 
-import type { CreateMatchInput, UpdateMatchInput } from "@bi/shared";
-import { prisma } from "@bi/db";
-import { expireCheckoutSession, refundEntryPayment } from "@bi/payments";
+import type { CreateMatchInput, UpdateMatchInput } from "@wager/shared";
+import { prisma } from "@wager/db";
+import { expireCheckoutSession, refundEntryPayment } from "@wager/payments";
 
 import {
   ConflictError,

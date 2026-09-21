@@ -1,4 +1,4 @@
-/** Minimal client surface for Better Auth sign-out (keeps @bi/shared free of better-auth). */
+/** Minimal client surface for Better Auth sign-out (keeps @wager/shared free of better-auth). */
 export type AuthSignOutClient = {
   signOut: (options?: {
     fetchOptions?: {

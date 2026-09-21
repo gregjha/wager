@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { signOutAndClearQueries } from "@bi/shared";
+import { signOutAndClearQueries } from "@wager/shared";
 
 import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
 import { authClient } from "@/lib/auth/auth-client";

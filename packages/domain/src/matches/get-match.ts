@@ -1,7 +1,7 @@
 import "server-only";
 
-import type { MatchDetailDTO } from "@bi/shared";
-import { prisma } from "@bi/db";
+import type { MatchDetailDTO } from "@wager/shared";
+import { prisma } from "@wager/db";
 
 import { mapMatchDetailToDto, matchSelectWithViewer } from "./match-select";
 

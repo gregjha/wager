@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { Prisma } from "@bi/db";
+import type { Prisma } from "@wager/db";
 
 /**
  * Entries that occupy a seat right now: confirmed players plus checkout
