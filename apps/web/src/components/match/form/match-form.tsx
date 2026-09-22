@@ -4,6 +4,7 @@ import Link from "next/link";
 import { startTransition, useActionState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useQueryClient } from "@tanstack/react-query";
 import {
   SKILL_LEVEL_LABELS,
   SPORT_LABELS,
@@ -13,6 +14,7 @@ import {
   formatSportLabel,
   matchFormSchema,
   platformFeeCents,
+  queryKeys,
   type MatchDetailDTO,
   type MatchFormData,
   type MatchFormInput,
@@ -79,6 +81,7 @@ function toServerInput(values: MatchFormData) {
 export function MatchForm({ initialMatch, type }: MatchFormProps) {
   const { data: session } = authClient.useSession();
   const payouts = usePayoutStatus(Boolean(session?.user));
+  const queryClient = useQueryClient();
   const [message, action, isSaving] = useActionState(
     type === "create" ? createMatch : updateMatch,
     null,
@@ -99,6 +102,10 @@ export function MatchForm({ initialMatch, type }: MatchFormProps) {
   const onSubmit = (values: MatchFormData) => {
     const input = toServerInput(values);
     startTransition(() => {
+      // The action redirects on success, so there's no client-side "success"
+      // moment to hang this on — invalidate eagerly instead. Matches the
+      // join/leave mutations' pattern in use-matches.ts.
+      void queryClient.invalidateQueries({ queryKey: queryKeys.matches.all });
       action(type === "update" ? { ...input, id: initialMatch!.id } : input);
     });
   };
